@@ -24,6 +24,6 @@ keywords:
   - SHAP
   - time-series forecasting
   - Industry 4.0
+repository-code: "https://github.com/ragabeid-netizen/digital-twin-predictive-maintenance"
 # After archiving on Zenodo, paste the assigned DOI below and in the paper:
 # doi: 10.5281/zenodo.XXXXXXX
-# repository-code: "https://github.com/<user>/<repo>"
