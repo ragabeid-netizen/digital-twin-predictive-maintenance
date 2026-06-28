@@ -17,7 +17,7 @@ import numpy as np
 # ---------------- INDICATIVE ASSUMPTIONS (state clearly in the paper) -----------
 CAPEX = 180_000      # EGP one-off: hardware 40k + software 20k + development 100k + training 20k
 OPEX  = 18_000       # EGP/yr: software upkeep, recalibration, model maintenance (~10% of CapEx)
-HOURS_RECOVERED = 420  # h/yr  (measured: from the 4.80 pp availability gain, Table 6)
+HOURS_RECOVERED = 526  # h/yr  (measured: from the 6.01 pp availability gain 92.40%->98.41%, Table 6)
 N     = 5            # appraisal horizon (years)
 
 def appraise(downtime_cost, r):

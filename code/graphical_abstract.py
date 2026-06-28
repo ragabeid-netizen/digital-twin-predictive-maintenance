@@ -21,7 +21,7 @@ ax.set_xlim(0,1328); ax.set_ylim(0,600); ax.axis("off")
 # title
 ax.text(664,572,"Adaptive Physics-Informed Digital Twin for Predictive Maintenance",
         ha="center",va="center",fontsize=16,fontweight="bold",color=NAVY)
-ax.text(664,545,"of a biscuit production line — 11 machines, 16 years of records (2010–2025)",
+ax.text(664,545,"of a biscuit production line — 11 machines, 17 years of records (2010–2026)",
         ha="center",va="center",fontsize=11.5,color=INK)
 
 def box(x,y,w,h,title,lines,fc,tc="white",ts=12):
@@ -67,9 +67,9 @@ def outcome(x,big,small,color):
     ax.text(x+ow/2,oy+oh-34,big,ha="center",va="center",fontsize=15,fontweight="bold",color=color)
     ax.text(x+ow/2,oy+44,small,ha="center",va="center",fontsize=10.2,color=INK,linespacing=1.4)
 
-outcome(28 ,"Availability  93.6% → 98.4%","metal-detector gain of +4.8 pp;\nsame DT pipeline applied to all 11 machines",NAVY)
+outcome(28 ,"Availability  92.4% → 98.4%","metal-detector gain of +6.0 pp;\nsame DT pipeline applied to all 11 machines",NAVY)
 outcome(459,"Forecast MAE ≈ 0.60%","robust under operating-regime shift\n(best-of-both vs Transformer, XGBoost, LSTM)",TEAL)
-outcome(890,"Payback 2.7 yr · ROI 83%","positive NPV & benefit–cost ratio 1.17\n(conservative single-machine case)",AMBER)
+outcome(890,"Payback 2.1 yr · ROI 142%","positive NPV & benefit–cost ratio 1.47\n(conservative single-machine case)",AMBER)
 
 plt.subplots_adjust(left=0,right=1,top=1,bottom=0)
 for ext in ("png","pdf"):
