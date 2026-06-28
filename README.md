@@ -30,7 +30,9 @@ DigitalTwin_PdM_Reproducibility/
 │                                 #   sensitivity to gate hyper-parameters, with
 │                                 #   bootstrap CIs, effect sizes and significance tests
 ├── data/
-│   └── Table3_Daily_Maintenance_Data.csv   # raw maintenance logs (see DATA_NOTE below)
+│   ├── Table3_Daily_Maintenance_Data.csv          # metal-detector machine (Machine_01)
+│   ├── fleet_daily_maintenance_anonymized.csv     # all 11 machines, anonymized, tidy
+│   └── DATA_DICTIONARY.md                          # columns, units, anonymization note
 ├── results/
 │   ├── benchmark_results.txt     # saved console output of benchmark_run.py
 │   ├── transformer_results.txt   # saved console output of transformer_baselines.py
