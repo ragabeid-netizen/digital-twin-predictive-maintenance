@@ -1,0 +1,10 @@
+monthly samples=180, features=6
+
+Model                                 Train(s) Infer(ms/sample)                   Size             Complexity
+Data model / ARW-PI core (XGBoost)       0.204           0.0161             5364 nodes         O(K·d·n log n)
+Adaptive hybrid (proposed, full)         0.204           0.0161      5364 nodes + gate    O(K·d·n log n)+O(n)
+LSTM                                    33.936           1.0020           4,897 params              O(E·n·h²)
+GRU                                     34.490           0.9917           3,777 params              O(E·n·h²)
+Transformer                             21.673           0.1538          17,761 params           O(E·n·w²·dm)
+
+DONE.

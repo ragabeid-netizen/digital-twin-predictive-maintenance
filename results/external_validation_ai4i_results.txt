@@ -1,0 +1,19 @@
+AI4I 2020: 10000 rows, 3.39% failures
+
+================ STATIONARY (random 70/30) ================
+  (test failures: 3.40% | mean gate alpha: 0.09)
+  model        ROC-AUC    PR-AUC
+  data           0.975     0.775
+  anchor         0.879     0.352
+  static         0.955     0.661
+  ARW-PI         0.971     0.739
+
+================ SHIFT (train tool-wear<=60th pct, test >60th pct) ================
+  (test failures: 5.11% | mean gate alpha: 0.37)
+  model        ROC-AUC    PR-AUC
+  data           0.815     0.506
+  anchor         0.795     0.342
+  static         0.808     0.490
+  ARW-PI         0.858     0.543
+
+DONE.

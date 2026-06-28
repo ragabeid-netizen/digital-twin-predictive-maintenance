@@ -29,8 +29,13 @@ DigitalTwin_PdM_Reproducibility/
 │   ├── ablation_sensitivity.py   # Tables 10–11: ablation of the adaptive gate +
 │   │                             #   sensitivity to gate hyper-parameters, with
 │   │                             #   bootstrap CIs, effect sizes and significance tests
-│   └── economic_analysis.py      # Tables 12–13: investment appraisal — payback,
-│                                 #   ROI, NPV and benefit–cost ratio (+ sensitivity)
+│   ├── economic_analysis.py      # Tables 12–13: investment appraisal — payback,
+│   │                             #   ROI, NPV and benefit–cost ratio (+ sensitivity)
+│   ├── external_validation_ai4i.py # Table 14: external validation of the adaptive
+│   │                             #   gate on the public AI4I 2020 benchmark
+│   ├── complexity_analysis.py    # Table 15: training/inference time, parameters,
+│   │                             #   memory and asymptotic complexity
+│   └── graphical_abstract.py     # the graphical-abstract / TOC figure
 ├── data/
 │   ├── Table3_Daily_Maintenance_Data.csv          # metal-detector machine (Machine_01)
 │   ├── fleet_daily_maintenance_anonymized.csv     # all 11 machines, anonymized, tidy
