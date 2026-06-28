@@ -1,0 +1,35 @@
+
+================ STATIONARY (train<=2018, test 2019-2021) ================
+  Persistence (naive)        MAE= 0.7524  RMSE= 0.8452  R2=  -0.948  MAPE= 0.7912
+  Seasonal naive (t-12)      MAE= 0.6816  RMSE= 0.8521  R2=  -0.980  MAPE= 0.7168
+  ARIMAX(2,1,2)+op           MAE= 0.4576  RMSE= 0.5520  R2=   0.169  MAPE= 0.4813
+  Prophet+op                 MAE= 0.4759  RMSE= 0.5946  R2=   0.036  MAPE= 0.5006
+  Random Forest              MAE= 0.3319  RMSE= 0.4162  R2=   0.528  MAPE= 0.3489  (+/-0.004)
+  XGBoost                    MAE= 0.2537  RMSE= 0.3416  R2=   0.682  MAPE= 0.2624  (+/-0.020)
+  LSTM                       MAE= 0.6414  RMSE= 0.7816  R2=  -0.690  MAPE= 0.6683  (+/-0.416)
+  GRU                        MAE= 0.5242  RMSE= 0.6432  R2=  -0.129  MAPE= 0.5420  (+/-0.047)
+  Physics-informed (simple)  MAE= 1.5226  RMSE= 2.1533  R2= -11.646  MAPE= 1.6022  (+/-0.137)
+  Adaptive hybrid (PROPOSED) MAE= 0.2547  RMSE= 0.3419  R2=   0.681  MAPE= 0.2623  (+/-0.020)
+
+================ REGIME-SHIFT (train<=2021, test 2022-2025) ================
+  Persistence (naive)        MAE= 0.6030  RMSE= 0.9531  R2=  -0.631  MAPE= 0.6221
+  Seasonal naive (t-12)      MAE= 1.0285  RMSE= 1.3048  R2=  -2.056  MAPE= 1.0618
+  ARIMAX(2,1,2)+op           MAE= 5.7915  RMSE= 5.8595  R2= -60.632  MAPE= 5.9799
+  Prophet+op                 MAE= 7.4420  RMSE= 7.5028  R2=-100.049  MAPE= 7.6823
+  Random Forest              MAE= 1.7605  RMSE= 1.8935  R2=  -5.436  MAPE= 1.8110  (+/-0.041)
+  XGBoost                    MAE= 1.9099  RMSE= 2.0569  R2=  -6.601  MAPE= 1.9637  (+/-0.415)
+  LSTM                       MAE= 1.9395  RMSE= 2.0494  R2=  -6.680  MAPE= 1.9782  (+/-2.147)
+  GRU                        MAE= 0.7354  RMSE= 0.9558  R2=  -0.739  MAPE= 0.6758  (+/-0.856)
+  Physics-informed (simple)  MAE= 1.0232  RMSE= 1.2206  R2=  -1.678  MAPE= 1.0557  (+/-0.201)
+  Adaptive hybrid (PROPOSED) MAE= 0.6030  RMSE= 0.9531  R2=  -0.631  MAPE= 0.6221  (+/-0.000)
+  -> Wilcoxon proposed vs Persistence (naive)       : p=0.1312 (NS)
+  -> Wilcoxon proposed vs Seasonal naive (t-12)     : p=0.003649 (sig)
+  -> Wilcoxon proposed vs ARIMAX(2,1,2)+op          : p=7.105e-15 (sig)
+  -> Wilcoxon proposed vs Prophet+op                : p=7.105e-15 (sig)
+  -> Wilcoxon proposed vs Random Forest             : p=1.722e-09 (sig)
+  -> Wilcoxon proposed vs XGBoost                   : p=1.393e-09 (sig)
+  -> Wilcoxon proposed vs LSTM                      : p=3.629e-10 (sig)
+  -> Wilcoxon proposed vs GRU                       : p=0.08396 (NS)
+  -> Wilcoxon proposed vs Physics-informed (simple) : p=0.0001331 (sig)
+
+DONE.

@@ -1,0 +1,8 @@
+rank,feature,mean_abs_shap,share_pct
+1,MTBF,3.598949,45.179813
+2,Lagged failure count (autoregressive history),1.549372,19.450222
+3,MTTR,0.807563,10.137838
+4,Calendar month (seasonality),0.572463,7.186482
+5,Year / trend index,0.558699,7.013691
+6,Downtime,0.455284,5.715458
+7,Operating hours (exposure),0.423503,5.316498

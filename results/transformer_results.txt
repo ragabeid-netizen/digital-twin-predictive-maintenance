@@ -1,0 +1,11 @@
+monthly rows: 192  years: 2010-2025
+
+================ STATIONARY (train<=2018, test 2019-2021) ================
+  Transformer    MAE= 0.4405  RMSE= 0.5597  R2=   0.146  MAPE= 0.4641
+  PatchTST       MAE= 0.5905  RMSE= 0.7611  R2=  -0.580  MAPE= 0.6215
+
+================ REGIME-SHIFT (train<=2021, test 2022-2025) ================
+  Transformer    MAE= 1.0338  RMSE= 1.1431  R2=  -1.346  MAPE= 1.0638
+  PatchTST       MAE= 0.7066  RMSE= 0.8552  R2=  -0.313  MAPE= 0.7289
+
+DONE.

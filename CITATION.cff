@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite both the paper and this repository."
+title: "Adaptive Physics-Informed Digital Twin for Predictive Maintenance — Reproducibility Package"
+abstract: >-
+  Code, data and computed results reproducing the experiments in the paper
+  "Prediction of Maintenance Failures and Decision-Making Based on Digital Twins:
+  A Fleet-Wide Study Across Eleven Production-Line Machines", including the model
+  benchmark, modern Transformer baselines (Transformer, PatchTST), SHAP
+  explainability, and the statistical-significance, ablation and sensitivity analyses.
+authors:
+  - family-names: "[First Author]"
+    given-names: "[Given]"
+  - family-names: "[Second Author]"
+    given-names: "[Given]"
+  - family-names: "[Third Author]"
+    given-names: "[Given]"
+version: "1.0.0"
+date-released: "2026-06-28"
+license: MIT
+keywords:
+  - digital twin
+  - predictive maintenance
+  - physics-informed machine learning
+  - SHAP
+  - time-series forecasting
+  - Industry 4.0
+# After archiving on Zenodo, paste the assigned DOI below and in the paper:
+# doi: 10.5281/zenodo.XXXXXXX
+# repository-code: "https://github.com/<user>/<repo>"
