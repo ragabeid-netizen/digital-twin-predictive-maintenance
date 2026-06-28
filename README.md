@@ -26,9 +26,11 @@ DigitalTwin_PdM_Reproducibility/
 │   ├── shap_run.py               # Global SHAP importance (Table 9, Fig. 15 bar)
 │   ├── shap_extra_plots.py       # SHAP summary (beeswarm, Fig. 16), dependence
 │   │                             #   (Fig. 17) and force plot (Fig. 18)
-│   └── ablation_sensitivity.py   # Tables 10–11: ablation of the adaptive gate +
-│                                 #   sensitivity to gate hyper-parameters, with
-│                                 #   bootstrap CIs, effect sizes and significance tests
+│   ├── ablation_sensitivity.py   # Tables 10–11: ablation of the adaptive gate +
+│   │                             #   sensitivity to gate hyper-parameters, with
+│   │                             #   bootstrap CIs, effect sizes and significance tests
+│   └── economic_analysis.py      # Tables 12–13: investment appraisal — payback,
+│                                 #   ROI, NPV and benefit–cost ratio (+ sensitivity)
 ├── data/
 │   ├── Table3_Daily_Maintenance_Data.csv          # metal-detector machine (Machine_01)
 │   ├── fleet_daily_maintenance_anonymized.csv     # all 11 machines, anonymized, tidy
