@@ -1,15 +1,62 @@
-# Adaptive Physics-Informed Digital Twin for Predictive Maintenance — Reproducibility Package
+# Adaptive Reliability-Weighted Digital Twin for Predictive Maintenance — Reproducibility Package
 
 This repository contains the code, data and computed results that reproduce the
 quantitative experiments reported in the paper:
 
-> **Prediction of Maintenance Failures and Decision-Making Based on Digital Twins:
-> A Fleet-Wide Study Across Eleven Production-Line Machines.**
+> **An Adaptive Reliability-Weighted Digital Twin for Predictive Maintenance under
+> Operating-Regime Shift: A Sixteen-Year Industrial Case Study.**
 
 It accompanies the manuscript so that every numerical result — the model benchmark
-(Table 5), the modern Transformer baselines, the SHAP explainability analysis
-(Table 9, Figs. 15–18), and the statistical-significance / ablation / sensitivity
-analyses (Tables 10–11) — can be regenerated from the raw maintenance records.
+(Table 2), the modern Transformer baselines, the SHAP explainability analysis
+(Fig. 6 and Supplementary Table S4), the ablation study (Table 3), the external
+validation on the public AI4I 2020 benchmark (Table 4), and the sensitivity grid
+(Supplementary Table S5) — can be regenerated from the raw maintenance records.
+
+> **Note on an earlier version of this README.** A previous revision described the
+> work as *"A Fleet-Wide Study Across Eleven Production-Line Machines."* That framing
+> was withdrawn during manuscript revision and is incorrect. See **Scope** below.
+
+---
+
+## Scope — what is measured and what is not
+
+The measured evidence is **one machine**: the metal detector on a biscuit production
+line at a food-manufacturing plant in 6th of October City, Egypt. Its maintenance
+logbook covers **sixteen complete years, January 2010 – December 2025 (192 monthly
+records)**, plus a partial 2026 annual aggregate that is reported for completeness
+and **excluded from every headline claim**.
+
+The repository also contains **ten synthetic replicas**. These are **proportional
+scalings of that single measured series** by fixed per-machine factors (0.80–0.98),
+with the operating calendar held constant. They exist to show that the data pipeline
+runs unchanged at fleet scale. **They are not independent assets and carry no
+independent evidential weight.** Any aggregate computed across the eleven assets
+reflects the scaling factors, not eleven independent failure processes.
+
+---
+
+## What the model actually is
+
+`ARW-PI` blends two predictors **at inference time**:
+
+```
+y_hybrid(t) = α(t)·y_phys(t) + [1 − α(t)]·y_ann(t)
+α(t)        = σ( s·[ δ_oc(t) − τ ] )
+```
+
+* `y_ann` — the data-driven component: a **gradient-boosted regressor** fitted under
+  the **standard squared-error objective**.
+* `y_phys` — the reliability anchor, from the renewal identity
+  `A = MTBF / (MTBF + MTTR)`. Evaluated at the last observed state this returns the
+  last observed availability, so **the anchor coincides numerically with a
+  persistence forecast**. This is a property of the identity, and the paper says so.
+* `δ_oc(t)` — an operating-condition novelty index. The gate shifts weight to the
+  anchor as the regime moves away from the training distribution.
+
+> **Important.** Section 3.5.2 of the paper specifies a physics-informed *training*
+> objective (Eqs. 7–10). **That extension is specified but not evaluated, and it is
+> not implemented in this repository.** The code implements the inference-time form
+> above only. No result in the paper depends on Eqs. (7)–(10).
 
 ---
 
@@ -18,28 +65,33 @@ analyses (Tables 10–11) — can be regenerated from the raw maintenance record
 ```
 DigitalTwin_PdM_Reproducibility/
 ├── code/
-│   ├── benchmark_run.py          # Table 5: fair benchmark of the proposed adaptive
-│   │                             #   physics-informed hybrid vs naive / statistical /
-│   │                             #   ML / deep baselines, two evaluation regimes
-│   ├── transformer_baselines.py  # Modern Transformer baselines (vanilla Transformer
-│   │                             #   + PatchTST) added to Table 5
-│   ├── shap_run.py               # Global SHAP importance (Table 9, Fig. 15 bar)
-│   ├── shap_extra_plots.py       # SHAP summary (beeswarm, Fig. 16), dependence
-│   │                             #   (Fig. 17) and force plot (Fig. 18)
-│   ├── ablation_sensitivity.py   # Tables 10–11: ablation of the adaptive gate +
-│   │                             #   sensitivity to gate hyper-parameters, with
-│   │                             #   bootstrap CIs, effect sizes and significance tests
-│   ├── economic_analysis.py      # Tables 12–13: investment appraisal — payback,
-│   │                             #   ROI, NPV and benefit–cost ratio (+ sensitivity)
-│   ├── external_validation_ai4i.py # Table 14: external validation of the adaptive
+│   ├── benchmark_run.py          # Table 2: benchmark of the proposed adaptive
+│   │                             #   reliability-weighted hybrid vs naive /
+│   │                             #   statistical / ML / deep baselines,
+│   │                             #   two evaluation regimes
+│   ├── transformer_baselines.py  # Transformer + PatchTST rows of Table 2
+│   ├── shap_run.py               # Global SHAP importance (Fig. 6,
+│   │                             #   Supplementary Table S4)
+│   ├── shap_extra_plots.py       # SHAP summary (beeswarm), dependence and force
+│   │                             #   plots — Supplementary Figs. S1–S3
+│   ├── ablation_sensitivity.py   # Table 3 (ablation) and Supplementary Table S5
+│   │                             #   (gate sensitivity), with bootstrap CIs,
+│   │                             #   effect sizes and significance tests
+│   ├── economic_analysis.py      # Section 4.12 investment appraisal — payback,
+│   │                             #   ROI, NPV, benefit–cost ratio and the
+│   │                             #   sensitivity grid (Supplementary Tables S6, S8)
+│   ├── external_validation_ai4i.py # Table 4: external validation of the adaptive
 │   │                             #   gate on the public AI4I 2020 benchmark
-│   ├── complexity_analysis.py    # Table 15: training/inference time, parameters,
-│   │                             #   memory and asymptotic complexity
+│   ├── complexity_analysis.py    # Supplementary Table S7: training/inference time,
+│   │                             #   parameters, memory and asymptotic complexity
 │   └── graphical_abstract.py     # the graphical-abstract / TOC figure
 ├── data/
-│   ├── Table3_Daily_Maintenance_Data.csv          # metal-detector machine (Machine_01)
-│   ├── fleet_daily_maintenance_anonymized.csv     # all 11 machines, anonymized, tidy
-│   └── DATA_DICTIONARY.md                          # columns, units, anonymization note
+│   ├── Table3_Daily_Maintenance_Data.csv       # the ONE measured machine
+│   │                                           #   (metal detector, Machine_01)
+│   ├── fleet_daily_maintenance_anonymized.csv  # Machine_01 (measured) plus ten
+│   │                                           #   SYNTHETIC proportional replicas
+│   │                                           #   — see Scope above
+│   └── DATA_DICTIONARY.md                      # columns, units, anonymization note
 ├── results/
 │   ├── benchmark_results.txt     # saved console output of benchmark_run.py
 │   ├── transformer_results.txt   # saved console output of transformer_baselines.py
@@ -63,11 +115,12 @@ venv\Scripts\activate            # Windows
 pip install -r requirements.txt
 
 # 3. Reproduce the results
-python code/benchmark_run.py          # -> Table 5 (baselines + proposed)
-python code/transformer_baselines.py  # -> Transformer + PatchTST rows of Table 5
-python code/shap_run.py               # -> Table 9 + Fig. 15 (global SHAP)
-python code/shap_extra_plots.py       # -> Figs. 16–18 (summary / dependence / force)
-python code/ablation_sensitivity.py   # -> Tables 10–11 + CIs, effect sizes, p-values
+python code/benchmark_run.py          # -> Table 2 (baselines + proposed)
+python code/transformer_baselines.py  # -> Transformer + PatchTST rows of Table 2
+python code/shap_run.py               # -> Fig. 6 + Supplementary Table S4
+python code/shap_extra_plots.py       # -> Supplementary Figs. S1–S3
+python code/ablation_sensitivity.py   # -> Table 3 + Supplementary Table S5
+python code/external_validation_ai4i.py # -> Table 4
 ```
 
 All scripts read the dataset from `data/Table3_Daily_Maintenance_Data.csv`
@@ -88,6 +141,11 @@ the paper. This keeps the reported accuracy free of any synthetic-data leakage.
 R² is negative for all models in the 2022–2025 regime-shift window because the
 availability series there is nearly saturated (very low variance); MAE and RMSE are
 the primary metrics, as stated in the paper.
+
+Under the 2022–2025 shift the proposed estimator's error is **statistically
+indistinguishable from the persistence anchor it falls back to** (p = 0.13), and
+significantly lower than every learned forecaster (p < 0.01). That is the intended
+behaviour of the gate, and the paper reports it as such.
 
 ---
 
