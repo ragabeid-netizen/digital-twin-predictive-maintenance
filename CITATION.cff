@@ -1,12 +1,16 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite both the paper and this repository."
-title: "Adaptive Physics-Informed Digital Twin for Predictive Maintenance — Reproducibility Package"
+title: "Adaptive Reliability-Weighted Digital Twin for Predictive Maintenance — Reproducibility Package"
 abstract: >-
   Code, data and computed results reproducing the experiments in the paper
-  "Prediction of Maintenance Failures and Decision-Making Based on Digital Twins:
-  A Fleet-Wide Study Across Eleven Production-Line Machines", including the model
+  "An Adaptive Reliability-Weighted Digital Twin for Predictive Maintenance under
+  Operating-Regime Shift: A Sixteen-Year Industrial Case Study", including the model
   benchmark, modern Transformer baselines (Transformer, PatchTST), SHAP
-  explainability, and the statistical-significance, ablation and sensitivity analyses.
+  explainability, external validation on the public AI4I 2020 benchmark, and the
+  statistical-significance, ablation and sensitivity analyses. The measured evidence
+  is one machine (a production-line metal detector) over sixteen complete years;
+  the ten additional series in the fleet file are synthetic proportional scalings of
+  that single record and carry no independent evidential weight.
 authors:
   - family-names: "[First Author]"
     given-names: "[Given]"
@@ -20,7 +24,8 @@ license: MIT
 keywords:
   - digital twin
   - predictive maintenance
-  - physics-informed machine learning
+  - reliability engineering
+  - distribution shift
   - SHAP
   - time-series forecasting
   - Industry 4.0
