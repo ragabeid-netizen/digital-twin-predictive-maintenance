@@ -12,14 +12,24 @@ abstract: >-
   the ten additional series in the fleet file are synthetic proportional scalings of
   that single record and carry no independent evidential weight.
 authors:
-  - family-names: "[First Author]"
-    given-names: "[Given]"
-  - family-names: "[Second Author]"
-    given-names: "[Given]"
-  - family-names: "[Third Author]"
-    given-names: "[Given]"
-version: "1.0.0"
-date-released: "2026-06-28"
+  - family-names: "Shehata"
+    given-names: "Ragab Eid Ragab"
+    orcid: "https://orcid.org/0009-0004-2040-2098"
+    affiliation: "Faculty of Technology and Education, Helwan University, Cairo, Egypt"
+  - family-names: "Shaban"
+    given-names: "Yasser"
+    affiliation: "Faculty of Engineering – El-Mattaria, Helwan University, Cairo, Egypt"
+  - family-names: "Ayoub"
+    given-names: "Nasser"
+    affiliation: "Faculty of Technology and Education, Helwan University, Cairo, Egypt"
+  - family-names: "Maghawry"
+    given-names: "M. M."
+    affiliation: "Faculty of Technology and Education, Helwan University, Cairo, Egypt"
+  - family-names: "Abdelwahab"
+    given-names: "Sabreen Abdallah"
+    affiliation: "Faculty of Technology and Education, Helwan University, Cairo, Egypt"
+version: "1.1.0"
+date-released: "2026-08-13"
 license: MIT
 keywords:
   - digital twin
