@@ -8,7 +8,8 @@ form for open Data Availability.
 The data contain **no company name, no location, no operator or personal data, and no
 commercial identifiers** — only calendar dates and aggregate machine-reliability counts.
 Machines are labelled generically as `Machine_01 … Machine_11` with a generic machine
-*type* only (Metal detector / Oven / Packaging / Kneading). No proprietary brand or model
+*type* only (Metal detector / Oven / Packaging / Kneading). Only `Machine_01` is a
+measured asset; `Machine_02 … Machine_11` are synthetic scalings of it. No proprietary brand or model
 name is included. The dataset can therefore be shared and reused without restriction.
 
 ## Files
@@ -16,7 +17,7 @@ name is included. The dataset can therefore be shared and reused without restric
 | File | Description |
 |------|-------------|
 | `Table3_Daily_Maintenance_Data.csv` | Daily reliability indicators for the metal-detector machine (`Machine_01`), 2010–2025. This is the machine used for the detailed model analysis (benchmark, SHAP). |
-| `fleet_daily_maintenance_anonymized.csv` | The full anonymized fleet: all 11 machines stacked in tidy (long) format, 2010–2025. |
+| `fleet_daily_maintenance_anonymized.csv` | `Machine_01` (the one **measured** machine) plus **ten synthetic replicas** derived from it by fixed proportional scaling, stacked in tidy (long) format, 2010–2025. The ten replicas are not independent assets — see *Provenance and correct use* below. |
 
 ## Columns
 
