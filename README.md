@@ -1,5 +1,21 @@
 # Adaptive Reliability-Weighted Digital Twin for Predictive Maintenance — Reproducibility Package
 
+> ## ⚠️ Data verification in progress — 14 August 2026
+>
+> **Please do not use the maintenance dataset in `data/` until this notice is removed.**
+>
+> The monthly failure series published here is being re-verified against the plant's
+> original records. A direct check of 48 months, completed on 14 August 2026, found that
+> the published monthly failure counts do not reproduce the source records: every one of
+> those 48 months differs, and two annual totals are overstated by 32 and 17 failures.
+> Quantities derived from the failure counts — mean time between failures and mean time
+> to repair in particular — are therefore incorrect as published in this repository.
+>
+> The remaining years and the downtime series are still being checked. Corrected data and
+> recomputed results will be posted when that verification is complete. This notice was
+> added by the authors on their own initiative, before any external review raised the point.
+
+
 This repository contains the code, data and computed results that reproduce the
 quantitative experiments reported in the paper:
 
